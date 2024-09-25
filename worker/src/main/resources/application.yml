@@ -1,0 +1,14 @@
+server:
+  port: 8090
+rabbit:
+  exchanger: ru.bogdsvn.sender.exchanger
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/sender
+    username: postgres
+    password: postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
