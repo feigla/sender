@@ -62,7 +62,7 @@
 
 **Sender-app** is a multi-module application built with Spring Boot, PostgreSQL, RabbitMQ, and Redis. It processes tasks submitted by clients asynchronously and ensures efficient parallel processing using workers.
 
-## Table of Contents
+## 📌 Table of Contents
 1. [Architecture](#architecture)
 2. [Modules](#modules)
    - [Client-api](#client-api)
@@ -70,7 +70,7 @@
    - [Worker](#worker)
    - [Miscellaneous](#miscellaneous-rabbitmq-redis-store)
 
-## Architecture
+## 🏗 Architecture
 
 The `Sender-app` is composed of several interconnected modules:
 
@@ -79,9 +79,9 @@ The `Sender-app` is composed of several interconnected modules:
 3. **Worker**: Picks up tasks from the queue and processes them. Multiple workers can run concurrently.
 4. **Miscellaneous**: Handles configurations for RabbitMQ, Redis, and database storage.
 
-## Modules
+## ⚙️ Modules
 
-### Client-api
+### 📌 Client-api
 
 The `Client-api` module is responsible for:
 - Accepting new tasks through REST endpoints.
@@ -89,14 +89,14 @@ The `Client-api` module is responsible for:
 - Offloading processing logic by delegating it to the Dispatcher and Workers.
 
 
-### Dispatcher
+### 📌 Dispatcher
 
 The `Dispatcher` module:
 - Periodically (every 5 seconds) queries the database for unprocessed task IDs.
 - Sends these task IDs to a RabbitMQ queue for worker processing.
 - Handles message broker connection using RabbitMQ configuration.
 
-### Worker
+### 📌 Worker
 
 The `Worker` module:
 - Gets task IDs from the RabbitMQ queue.
@@ -104,7 +104,7 @@ The `Worker` module:
 - Redis is used to prevent multiple workers from processing the same task simultaneously by locking tasks during execution.
 
 
-### Miscellaneous (RabbitMQ, Redis, Store)
+### 📌 Miscellaneous (RabbitMQ, Redis, Store)
 
 This section includes:
 - **RabbitMQ configuration**: To establish message broker connections.
